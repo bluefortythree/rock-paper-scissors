@@ -31,6 +31,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+    })
+})
+
 let userScore = 0
 let computerScore = 0
 
