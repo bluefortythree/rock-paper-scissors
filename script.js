@@ -1,43 +1,33 @@
-
-
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
     if(randomNumber >= 2) {
-        return "Scissors"
+        return "scissors"
     } else if (randomNumber <2 && randomNumber >= 1) {
-        return "Paper"
+        return "paper"
     } else {
-        return "Rock"
+        return "rock"
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+    if(playerSelection === computerSelection) {
         return "It's a tie!"
-    } else if(playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER") {
+    } else if(playerSelection === "rock" && computerSelection === "paper") {
         return "You lose! Paper beats rock!"
-    } else if(playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
+    } else if(playerSelection === "rock" && computerSelection === "scissors") {
         return "You win! Rock beats scissors!"
-    } else if(playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
+    } else if(playerSelection === "paper" && computerSelection === "rock") {
         return "You win! Paper beats rock!"
-    } else if(playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
+    } else if(playerSelection === "paper" && computerSelection === "scissors") {
         return "You lose! Scissors beats paper!"
-    } else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
+    } else if(playerSelection === "scissors" && computerSelection === "rock") {
         return "You lose! Rock beats scissors!"
-    } else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
+    } else if(playerSelection === "scissors" && computerSelection === "paper") {
         return "You win! Scissors beats paper!"
     } else {
         return "Please enter either \"rock\", \"paper\", or \"scissors\"!"
     }
 }
-
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        console.log(button.id);
-    })
-})
 
 let userScore = 0
 let computerScore = 0
@@ -58,11 +48,11 @@ function game() {
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
 
-            if(playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+            if(playerSelection === computerSelection) {
             console.log("Your score: " + userScore + ", " + "Computer's score: " + computerScore)
-            } else if(playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER" || playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS" || playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
+            } else if(playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" || playerSelection === "scissors" && computerSelection === "rock") {
             console.log("Your score: " + userScore + ", " + "Computer's score: " + computerPoint())
-            } else if(playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS" || playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK" || playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
+            } else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "paper") {
             console.log("Your score: " + userPoint() + ", " + "Computer's score: " + computerScore)
             } else {
             console.log("Please enter either \"rock\", \"paper\", or \"scissors\"!")
@@ -80,5 +70,4 @@ function game() {
     }
 
 game();
-
 
